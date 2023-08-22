@@ -1,42 +1,32 @@
-//display the book details by initializing the object using methods through array of objects
-import java.util.Scanner;
+import java.util.ArrayList;
 class Book
   {
-  String title;
-  int id;
-  String author;
-  int year;
-public void displayDetails() {
-    System.out.println(title + " " + id + " " + author + " " + year);
-  }
-public void setDetails(String t, int i, String a, int y) {
-    title = t;
-    id = i;
-    author = a;
-    year = y;
-  }
-public static void main(String args[]) {
-    Scanner sc = new Scanner(System.in);
-    System.out.println("how many number of books");
-    int count = sc.nextInt();
-    Book b[] = new Book[count];
-    for (int i = 0; i < count; i++)// i=0//i=1//i=2
+    int Book_Id;
+    String Book_title;
+   String Book_Name;
+    int Publishing_year;
+    Book(int book_Id,String book_title,String book_name, int Publishing_year)
     {
-      System.out.println("enter book" + (i + 1) + " details");
-      b[i] = new Book();
-      System.out.println("enter the title of the book");
-      // String =sc.next();
-      System.out.println("enter the id of the book");
-      // int bid=sc.nextInt();
-      System.out.println("enter author of the book");
-      // String babnameuthor=sc.next();
-      System.out.println("enter year");
-      // int byear=sc.nextInt();
-      // b[i].setDetails(bname,bid,bauthor,byear);
-      b[i].setDetails(sc.next(), sc.nextInt(), sc.next(), sc.nextInt());
+      this.Book_Id=book_Id;
+      this.Book_title=book_title;
+      this.Book_Name=book_name;
+      this.Publishing_year=Publishing_year;
     }
-    for (int i = 0; i < count; i++) {
-      b[i].displayDetails();
+    
+  }
+class Book_Publish
+  {
+    public static void main(String[]args)
+    {
+      ArrayList<Book> al=new ArrayList<Book>();
+      Book b1=new Book(123,"Queen of Fire","Rangachari",2022);
+      Book b2=new Book(245,"A child of Destiny","RamaKrishna",2020);
+      Book b3=new Book(456,"Let us Dream","francis",2020);
+      Book b4=new Book(116,"My Journey","Suhana",2045);
+      Book b5=new Book(636,"Fly Like A Bird","Raju",2020);
+      for(Book book:al)
+        {
+          System.out.println(book.Book_Id+ " "+book.Book_title+" "+book.Book_Name+" "+book.Publishing_year);
+        }
     }
   }
-}
